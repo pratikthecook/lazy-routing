@@ -1,0 +1,6 @@
+[
+  { "path" : "/about" , "name" : "About" , "component" : "AboutComponent", "route": "/About" , "resource" : "./app/about/about.component" },
+  { "path" : "/contact" , "name" : "Contact" , "component" : "ContactComponent", "route": "/Contact" , "resource" : "./app/contact/contact.component" },
+  { "path" : "/blog" , "name" : "Blog" , "component" : "BlogComponent", "route": "/Blog" , "resource" : "./app/blog/blog.component" },
+  { "path" : "/news" , "name" : "News" , "component" : "NewsComponent", "route": "/News" , "resource" : "./app/news/news.component" }
+]

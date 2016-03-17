@@ -1,0 +1,3 @@
+[
+  { "path" : "/" , "name" : "Home" , "component" : "HomeComponent" }
+]

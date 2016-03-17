@@ -1,0 +1,4 @@
+[
+  {"path" : "/blog" , "name" : "Blog" , "component" : "BlogComponent", "route": "/Blog" , "resource" : "./app/blog/blog.component" },
+  { "path" : "/news" , "name" : "News" , "component" : "NewsComponent", "route": "/News" , "resource" : "./app/news/news.component" }
+]

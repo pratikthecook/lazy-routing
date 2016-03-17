@@ -1,0 +1,4 @@
+[
+  { "path" : "/about" , "name" : "About" , "component" : "AboutComponent", "route": "/About" , "resource" : "./app/about/about.component" },
+  { "path" : "/contact" , "name" : "Contact" , "component" : "ContactComponent", "route": "/Contact" , "resource" : "./app/contact/contact.component" }
+]

@@ -1,0 +1,14 @@
+[{
+  "lazy": true,
+  "path": "/about",
+  "name": "About",
+  "component": "AboutComponent",
+  "location": "./app/about/about.component"
+}, {
+  "lazy": false,
+  "path": "/contact",
+  "name": "Contact",
+  "component": "ContactComponent",
+  "location": "./app/contact/contact.component"
+}
+]

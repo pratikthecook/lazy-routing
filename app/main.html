@@ -1,0 +1,26 @@
+<div>
+    <nav>
+        <a> Router Navigation:</a>
+        <ul>
+            <li>
+                <a [routerLink]="['/Home']">Home</a>[Default]   &nbsp; &nbsp;
+                <div *ngIf="routesReady"> <a *ngFor="#router of dynamicRouteViewArray" [routerLink]="[router.route]">{{router.name}} &nbsp; &nbsp;</a> </div>
+            </li>
+        </ul>
+    </nav>
+
+   <router-outlet></router-outlet>
+
+    <div style="border: black thin">
+        <p> Select No of Routes </p>
+        <p> <select #opt>
+                <option value="1">About & Contact Page</option>
+                <option value="2">Blog & News Routes</option>
+            </select>
+        </p>
+        <p> <button (click)="updatePageRoutes(opt.value)">Submit</button></p>
+    </div>
+</div>
+
+
+
