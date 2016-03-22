@@ -6,34 +6,23 @@ import{Injectable}   from 'angular2/core';
 import { Http, HTTP_PROVIDERS,Response} from 'angular2/http';
 import {Router,RouteConfig, ROUTER_DIRECTIVES,RouterLink , AsyncRoute , ROUTER_PROVIDERS , RouteDefinition ,Route} from 'angular2/router';
 
-
-
+/**
+ * Class that fetches the JSON from service and sets the router paths mapped in the json file to the application router
+ */
 @Injectable()
 export class RouteService{
     resultObject : any;
     routeConfig : RouteDefinition [];
-    constructor(private _http : Http,private _router:Router){
+
+    constructor(private _http : Http){
         this.routeConfig = [];
     }
-
-
-    fetchRouterConfig(callback){
-    let URL: string = '/lazy-routing/routes.json';
-        this._http.get(URL)
-            .map(res =>res.json())
-            .subscribe(
-                data => callback(data),
-                err => console.log("Error Occured"),
-                () => console.log("Completed")
-            );
-    }
-
 
     /**
      * using Http async call fetch components from json and load them in router.config using configRoutes()
      * @param path
      */
-    loadUserRoutesHttp(path : string,mainRef : any){
+    loadUserRoutesHttp(path : string,mainRef : any,_router : any){
         let URL: string = '/lazy-routing/'+path;
 
         let appComponentRef = mainRef;
@@ -51,7 +40,7 @@ export class RouteService{
                 },
                 () => {
                     // Config the routes
-                    this.configRoutes(appComponentRef);
+                    this.configRoutes(appComponentRef,_router);
                 }
             );
 
@@ -60,7 +49,7 @@ export class RouteService{
     /**
      * Config routes the fetched routes from json.
      */
-    configRoutes(appComponentRef : any){
+    configRoutes(appComponentRef : any,_router){
         let routes : any[] = this.resultObject;
         routes.forEach((route : any) => {
             this.routeConfig.push(
@@ -74,6 +63,8 @@ export class RouteService{
             appComponentRef.globalRouteNameDirectory.push({'name': route.name, 'route' : route.route});
             console.log('name'+ route.name+ ' route '+route.route)
         });
+
+        _router.config(this.routeConfig);
         console.log('configured');
         appComponentRef.routesReady = true;
     }

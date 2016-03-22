@@ -27,9 +27,7 @@ export class AppComponent {
         public routesReady : boolean;
 
         constructor(private _router:Router, private routeServ:RouteService) {
-            console.log('app.component');
-
-            this.globalRouteNameDirectory = [];
+            this.globalRouteNameDirectory = [{'name': 'About', 'route' : '/About'},{'name' : 'Contact' , 'route' : '/Contact'}];
             this.routesReady = false;
         }
 
@@ -40,15 +38,11 @@ export class AppComponent {
      */
     updatePageRoutes(selectedRoutes : string){
             this.routesReady = false;
-            if(selectedRoutes==1){
-                 // TODO : Pass AppComponent Reference here to update the globalRouteNameDirectory & rotesReady
-                 this.routeServ.loadUserRoutesHttp('setone.json',this);
+            if(selectedRoutes==1)
+                this.routeServ.loadUserRoutesHttp('setone.json',this,this._router);
+            else
+                this.routeServ.loadUserRoutesHttp('settwo.json',this,this._router);
 
-            }
-
-            else{
-                this.routeServ.loadUserRoutesHttp('settwo.json');
-             }
         }
 
 
