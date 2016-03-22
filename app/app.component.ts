@@ -27,7 +27,6 @@ export class AppComponent {
         public routesReady : boolean;
 
         constructor(private _router:Router, private routeServ:RouteService) {
-            this.globalRouteNameDirectory = [{'name': 'About', 'route' : '/About'},{'name' : 'Contact' , 'route' : '/Contact'}];
             this.routesReady = false;
         }
 
