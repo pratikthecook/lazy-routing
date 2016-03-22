@@ -4,7 +4,7 @@
         <ul>
             <li>
                 <a [routerLink]="['/Home']">Home</a>[Default]   &nbsp; &nbsp;
-                <div *ngIf="routesReady"> <a *ngFor="#router of dynamicRouteViewArray" [routerLink]="[router.route]">{{router.name}} &nbsp; &nbsp;</a> </div>
+                <div *ngIf="routesReady"> <a *ngFor="#router of globalRouteNameDirectory" [routerLink]="[router.route]">{{router.name}} &nbsp; &nbsp;</a> </div>
             </li>
         </ul>
     </nav>
@@ -23,4 +23,4 @@
 </div>
 
 
-
+<button (click)="newpage()">New Page</button>;
